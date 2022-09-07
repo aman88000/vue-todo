@@ -10,7 +10,7 @@
             Vue-Todo
           </v-list-item-title>
           <v-list-item-subtitle>
-            Vuetify Todo app v1
+            Vuetify Todo app v2
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
