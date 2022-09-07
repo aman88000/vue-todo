@@ -15,32 +15,27 @@
                 >{{ task.title }}</v-list-item-title
               >
             </v-list-item-content>
-            <v-list-item-action @click.stop="dialogs.delete= true">
+            <task-menu :task="task" />
+            <!-- <v-list-item-action @click.stop="dialogs.delete= true">
               <v-btn icon>
                 <v-icon color="primary">mdi-delete</v-icon>
               </v-btn>
-            </v-list-item-action>
+            </v-list-item-action> -->
+
              
           </template>
          
          </v-list-item>
         <v-divider></v-divider>
-        <dialog-delete v-if="dialogs.delete" :task="task" @close="dialogs.delete= false" />
+        
       </div>
 </template>
 
 <script>
     export default {
-        data(){
-            return {
-                dialogs: {
-                    delete: false
-                }
-            }
-        },
         props: ['task'],
         components: {
-            'dialog-delete': require('@/components/Todo/Dialogs/DialogDelete.vue').default
+            'task-menu': require('@/components/Todo/Taskmenu.vue').default
         }
     }
 </script>
