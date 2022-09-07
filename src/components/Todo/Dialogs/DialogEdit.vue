@@ -10,6 +10,7 @@
         <v-spacer></v-spacer>
         <v-btn text @click="$emit('close')"> Cancel </v-btn>
         <v-btn
+        :disabled="saveTitleValidate"
           color="red darken-1"
           text
           @click="saveTask"
@@ -28,18 +29,26 @@ export default {
       taskText: null,
     };
   },
+  computed: {
+    saveTitleValidate(){
+      return !this.taskText || this.taskText === this.task.title
+    }
+  },
   props: ["task"],
   mounted() {
     this.taskText = this.task.title;
   },
   methods: {
     saveTask(){
-      let payload = {
-        id: this.task.id,
-        text: this.taskText
+      if(!this.saveTitleValidate){
+          let payload = {
+                id: this.task.id,
+                text: this.taskText
+              }
+              this.$store.dispatch('editTask', payload)
+              this.$emit('close')
       }
-      this.$store.commit('editTask', payload)
-      this.$emit('close')
+    
     }
   }
 };

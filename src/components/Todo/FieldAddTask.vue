@@ -1,14 +1,20 @@
 <template>
       <v-text-field class="pa-3"
     v-model="newTask"
-    @click:append="addNewTask"
     @keyup.enter="addNewTask"
       outlined
       label="Add Todo"
-      append-icon="mdi-plus"
       clearable
       hide-details
-    ></v-text-field>
+    >
+      <template v-slot:append>
+            <v-icon
+            color="primary"
+            :disabled="newTaskValidate"
+            @click="addNewTask"
+            >mdi-plus</v-icon>
+            </template>
+    </v-text-field>
 </template>
 
 <script>
@@ -20,10 +26,18 @@
     
     };
   },
+  computed: {
+    newTaskValidate(){
+      return !this.newTask
+    }
+  },
   methods: {
     addNewTask(){
-      this.$store.dispatch('addNewTask', this.newTask);
-      this.newTask = ''
+      if(!this.newTaskValidate){
+  this.$store.dispatch('addNewTask', this.newTask);
+      this.newTask = '' 
+      }
+    
     },
   },
         

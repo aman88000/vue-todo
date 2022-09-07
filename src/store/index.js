@@ -61,6 +61,10 @@ export default new Vuex.Store({
       commit('doneTask', id)
       commit('showSnackBar', 'Task selected!')
     },
+    editTask({ commit }, payload) {
+      commit('editTask', payload)
+      commit('showSnackBar', 'Task updated!')
+    }
   },
   getters: {
 
