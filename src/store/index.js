@@ -6,6 +6,24 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     tasks: [
+      {
+        id: 1,
+        title: 'Wake up',
+        done: false,
+        dueDate: '2022-09-07'
+      },
+      {
+        id: 2,
+        title: 'Go Gym',
+        done: false,
+        dueDate: '2022-09-08'
+      },
+      {
+        id: 3,
+        title: 'Office work',
+        done: false,
+        dueDate: null
+      }
     ],
     snackbar: {
       show: false,
@@ -19,7 +37,8 @@ export default new Vuex.Store({
       let task = {
         id: Date.now(),
         title: newTask,
-        done: false
+        done: false,
+        dueDate: null
       }
       state.tasks.push(task)
     },
@@ -46,6 +65,10 @@ export default new Vuex.Store({
     editTask(state, payload) {
       let task = state.tasks.filter(task => task.id === payload.id)[0]
       task.title = payload.text
+    },
+    dueDateUpdate(state, payload) {
+      let task = state.tasks.filter(task => task.id === payload.id)[0]
+      task.dueDate = payload.dueDate
     }
   },
   actions: {
@@ -64,6 +87,10 @@ export default new Vuex.Store({
     editTask({ commit }, payload) {
       commit('editTask', payload)
       commit('showSnackBar', 'Task updated!')
+    },
+    dueDateUpdate({ commit }, payload) {
+      commit('dueDateUpdate', payload)
+      commit('showSnackBar', 'Due Date updated!')
     }
   },
   getters: {
