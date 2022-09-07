@@ -43,10 +43,9 @@ export default new Vuex.Store({
 
 
     },
-    editTask(state, arr) {
-      let [id, text] = arr
-      let task = state.tasks.filter(task => task.id === id)[0]
-      task.title = text
+    editTask(state, payload) {
+      let task = state.tasks.filter(task => task.id === payload.id)[0]
+      task.title = payload.text
     }
   },
   actions: {
@@ -62,10 +61,6 @@ export default new Vuex.Store({
       commit('doneTask', id)
       commit('showSnackBar', 'Task selected!')
     },
-    editTask({ commit }, [id, text]) {
-      commit('editTask', [id, text])
-    }
-
   },
   getters: {
 
