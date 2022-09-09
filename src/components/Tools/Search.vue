@@ -32,10 +32,12 @@ export default {
         cursor:  pointer !important
         &:before
             border-color: transparent !important
+            border-width: 0px !important
         &:after
             border: none !important
     &.closed
         max-width: 13%
         .v-input__slot
             background: transparent !important
+
 </style>
