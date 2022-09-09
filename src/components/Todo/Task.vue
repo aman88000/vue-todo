@@ -58,7 +58,7 @@ export default {
   },
   components: {
     "task-menu": require("@/components/Todo/Taskmenu.vue").default,
-  },
+  }
 };
 </script>
 <style lang="sass" scoped>

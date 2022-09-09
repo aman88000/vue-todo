@@ -31,5 +31,8 @@ export default {
       this.newTask = "";
     },
   },
+  mounted(){
+    this.$store.dispatch('getTasks')
+  }
 };
 </script>

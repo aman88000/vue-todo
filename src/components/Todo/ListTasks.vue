@@ -25,7 +25,7 @@ export default {
         return this.$store.getters.filterSearchTasks;
       },
       set(newArr) {
-        this.$store.commit("setList", newArr);
+        this.$store.dispatch("setList", newArr);
       },
     },
   },
