@@ -30,9 +30,8 @@ export default new Vuex.Store({
     snackbar: {
       show: false,
       text: 'testing'
-    }
-  },
-  getters: {
+    },
+    sorting: false
   },
   mutations: {
     setSearchText(state, value) {
@@ -74,6 +73,12 @@ export default new Vuex.Store({
     dueDateUpdate(state, payload) {
       let task = state.tasks.filter(task => task.id === payload.id)[0]
       task.dueDate = payload.dueDate
+    },
+    toggleSort(state) {
+      state.sorting = !state.sorting
+    },
+    setList(state, tasks) {
+      state.tasks = tasks
     }
   },
   actions: {

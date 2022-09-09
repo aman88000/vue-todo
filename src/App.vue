@@ -1,21 +1,17 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer v-model="drawer" app
-    :mobile-breakpoint="768">
-      <v-img class="pa-4 pt-7"
+    <v-navigation-drawer v-model="drawer" app :mobile-breakpoint="768">
+      <v-img
+        class="pa-4 pt-7"
         height="170"
         src="mountains.jpg"
         gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
       >
-       <v-avatar class="mb-2">
-      <img
-        src="https://cdn.vuetifyjs.com/images/john.jpg"
-        alt="John"
-      >
-    </v-avatar>
-    <div class="white--text text-h6" >Aman Deep</div>
-    <div class="white--text text-caption">aman88000</div>
-      
+        <v-avatar class="mb-2">
+          <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
+        </v-avatar>
+        <div class="white--text text-h6">Aman Deep</div>
+        <div class="white--text text-caption">aman88000</div>
       </v-img>
 
       <v-list dense nav>
@@ -54,7 +50,9 @@
           <search />
         </v-row>
         <v-row>
-          <v-app-bar-title class="ml-4 text-h4">{{$store.state.appTitle}}</v-app-bar-title>
+          <v-app-bar-title class="ml-4 text-h4">{{
+            $store.state.appTitle
+          }}</v-app-bar-title>
         </v-row>
         <v-row>
           <live-date-time />
