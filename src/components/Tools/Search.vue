@@ -4,6 +4,7 @@
   @input="$store.commit('setSearchText', $event)"
   @focus="searchClosed = false"
   @blur="searchClosed = true"
+  :disabled="$store.state.sorting"
     class="expending-search mt-1"
     :class="{'closed': searchClosed && !$store.state.searchText}"
     prepend-inner-icon="mdi-magnify"

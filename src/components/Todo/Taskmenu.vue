@@ -67,7 +67,11 @@ export default {
         title: "Sort",
         icon: "mdi-drag-horizontal-variant",
         click() {
-          this.$store.commit('toggleSort')
+          if(!this.$store.state.searchText){
+            this.$store.commit('toggleSort')
+          }else{
+            this.$store.commit('showSnackBar', 'you can not sort while searching!')
+          }
         },
       },
     ],
